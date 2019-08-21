@@ -5,7 +5,7 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <p>Just started to change the code.</p>
+        <input className="Input-search" placeholder="Type an artist name" />
       </header>
     </div>
   );

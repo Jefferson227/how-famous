@@ -23,6 +23,17 @@
   color: #61dafb;
 }
 
+.Input-search {
+  width: 80%;
+  height: 101px;
+  font-size: 40px;
+  padding-left: 54px;
+  box-sizing: border-box;
+  border-radius: 67px;
+  border: 0;
+  outline: none;
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
