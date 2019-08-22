@@ -45,6 +45,42 @@ function App() {
           />
           <div className="Artist__name">Megadeth</div>
         </div>
+
+        <div className="Artist">
+          <img
+            className="Artist__image"
+            src="https://i.scdn.co/image/cdc26c67ffe1c377e0521435eb4a46ce0ec23876"
+            alt="Megadeth"
+          />
+          <div className="Artist__name">Megadeth</div>
+        </div>
+
+        <div className="Artist">
+          <img
+            className="Artist__image"
+            src="https://i.scdn.co/image/cdc26c67ffe1c377e0521435eb4a46ce0ec23876"
+            alt="Megadeth"
+          />
+          <div className="Artist__name">Megadeth</div>
+        </div>
+
+        <div className="Artist">
+          <img
+            className="Artist__image"
+            src="https://i.scdn.co/image/cdc26c67ffe1c377e0521435eb4a46ce0ec23876"
+            alt="Megadeth"
+          />
+          <div className="Artist__name">Megadeth</div>
+        </div>
+
+        <div className="Artist">
+          <img
+            className="Artist__image"
+            src="https://i.scdn.co/image/cdc26c67ffe1c377e0521435eb4a46ce0ec23876"
+            alt="Megadeth"
+          />
+          <div className="Artist__name">Megadeth</div>
+        </div>
       </section>
     </div>
   );

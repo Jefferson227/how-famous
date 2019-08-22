@@ -41,11 +41,17 @@ html {
 
 .Artists {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
+  flex-wrap: wrap;
   max-width: 73%;
   margin: 0 auto;
   margin-top: 46px;
   margin-bottom: 46px;
+}
+
+.Artist {
+  margin: 0 37px;
+  margin-bottom: 45px;
 }
 
 .Artist__image {
