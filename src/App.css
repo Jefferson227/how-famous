@@ -1,5 +1,6 @@
 html {
   background-color: #282c34;
+  color: #fff;
 }
 
 .App {
@@ -38,10 +39,24 @@ html {
   outline: none;
 }
 
+.Artists {
+  display: flex;
+  justify-content: space-between;
+  max-width: 73%;
+  margin: 0 auto;
+  margin-top: 46px;
+  margin-bottom: 46px;
+}
+
 .Artist__image {
-  width: 120px;
-  height: 120px;
+  width: 160px;
+  height: 160px;
   border-radius: 100px;
+}
+
+.Artist__image,
+.Artist__name {
+  cursor: pointer;
 }
 
 @keyframes App-logo-spin {
