@@ -3,11 +3,27 @@ import Artist from "./components/Artist";
 import "./App.css";
 import "./App-responsive.css";
 
+let searchTerm;
+const searchArtist = element => {
+  const term = element.target.value;
+
+  clearTimeout(searchTerm);
+  searchTerm = setTimeout(() => {
+    if (term.length < 3) return;
+
+    console.log(term);
+  }, 1000);
+};
+
 function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <input className="Input-search" placeholder="Type an artist name" />
+        <input
+          className="Input-search"
+          placeholder="Type an artist name"
+          onKeyUp={searchArtist}
+        />
       </header>
 
       <section className="Artists">
