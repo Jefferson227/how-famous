@@ -1,0 +1,31 @@
+.Artist {
+  margin: 0 37px;
+  margin-bottom: 45px;
+}
+
+.Artist__image {
+  width: 160px;
+  height: 160px;
+  border-radius: 100px;
+}
+
+.Artist__image,
+.Artist__name {
+  cursor: pointer;
+}
+
+.Artist__note-icon {
+  position: absolute;
+  margin-top: 60px;
+  margin-left: -15px;
+}
+
+.Artist__image-placeholder {
+  font-size: 42px;
+  background-color: #5b5b63;
+  border-radius: 100%;
+  width: 160px;
+  height: 160px;
+  margin: 0 auto;
+  margin-bottom: 5px;
+}

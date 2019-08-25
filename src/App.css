@@ -49,22 +49,6 @@ html {
   margin-bottom: 46px;
 }
 
-.Artist {
-  margin: 0 37px;
-  margin-bottom: 45px;
-}
-
-.Artist__image {
-  width: 160px;
-  height: 160px;
-  border-radius: 100px;
-}
-
-.Artist__image,
-.Artist__name {
-  cursor: pointer;
-}
-
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);

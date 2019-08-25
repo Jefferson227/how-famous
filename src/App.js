@@ -1,67 +1,62 @@
 import React from "react";
 import Artist from "./components/Artist";
+import { getArtists } from "./services";
 import "./App.css";
 import "./App-responsive.css";
 
-let searchTerm;
-const searchArtist = element => {
-  const term = element.target.value;
+class App extends React.Component {
+  constructor() {
+    super();
 
-  clearTimeout(searchTerm);
-  searchTerm = setTimeout(() => {
-    if (term.length < 3) return;
+    this.state = {
+      artists: []
+    };
+  }
 
-    console.log(term);
-  }, 1000);
-};
-
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <input
-          className="Input-search"
-          placeholder="Type an artist name"
-          onKeyUp={searchArtist}
-        />
-      </header>
-
-      <section className="Artists">
-        <Artist
-          name="Megadeth"
-          imageUrl="https://i.scdn.co/image/cdc26c67ffe1c377e0521435eb4a46ce0ec23876"
-        />
-        <Artist
-          name="Megadeth"
-          imageUrl="https://i.scdn.co/image/cdc26c67ffe1c377e0521435eb4a46ce0ec23876"
-        />
-        <Artist
-          name="Megadeth"
-          imageUrl="https://i.scdn.co/image/cdc26c67ffe1c377e0521435eb4a46ce0ec23876"
-        />
-        <Artist
-          name="Megadeth"
-          imageUrl="https://i.scdn.co/image/cdc26c67ffe1c377e0521435eb4a46ce0ec23876"
-        />
-        <Artist
-          name="Megadeth"
-          imageUrl="https://i.scdn.co/image/cdc26c67ffe1c377e0521435eb4a46ce0ec23876"
-        />
-        <Artist
-          name="Megadeth"
-          imageUrl="https://i.scdn.co/image/cdc26c67ffe1c377e0521435eb4a46ce0ec23876"
-        />
-        <Artist
-          name="Megadeth"
-          imageUrl="https://i.scdn.co/image/cdc26c67ffe1c377e0521435eb4a46ce0ec23876"
-        />
-        <Artist
-          name="Megadeth"
-          imageUrl="https://i.scdn.co/image/cdc26c67ffe1c377e0521435eb4a46ce0ec23876"
-        />
-      </section>
-    </div>
+  getArtistComponent = (key, id, name, imageUrl) => (
+    <Artist key={key} id={id} name={name} imageUrl={imageUrl} />
   );
+
+  searchTerm;
+  searchArtist = element => {
+    const term = element.target.value;
+
+    clearTimeout(this.searchTerm);
+    this.setState({ artists: [] });
+
+    this.searchTerm = setTimeout(() => {
+      if (term.length < 3) return;
+
+      getArtists(term).then(response => {
+        for (let i = 0; i < response.data.length; i++) {
+          let artist = response.data[i];
+          let { id, name, image } = artist;
+          this.setState({
+            artists: [
+              ...this.state.artists,
+              this.getArtistComponent(i, id, name, image)
+            ]
+          });
+        }
+      });
+    }, 1000);
+  };
+
+  render() {
+    return (
+      <div className="App">
+        <header className="App-header">
+          <input
+            className="Input-search"
+            placeholder="Type an artist name"
+            onKeyUp={this.searchArtist}
+          />
+        </header>
+
+        <section className="Artists">{this.state.artists}</section>
+      </div>
+    );
+  }
 }
 
 export default App;
