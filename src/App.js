@@ -9,7 +9,8 @@ class App extends React.Component {
     super();
 
     this.state = {
-      artists: []
+      artists: [],
+      messageInfo: null
     };
   }
 
@@ -22,15 +23,25 @@ class App extends React.Component {
     const term = event.target.value;
 
     clearTimeout(this.searchTerm);
-    this.setState({ artists: [] });
+    this.setState({
+      artists: [],
+      messageInfo: <div>Searching...</div>
+    });
+
+    if (!term.length) {
+      this.setState({
+        messageInfo: null
+      });
+
+      return;
+    }
 
     this.searchTerm = setTimeout(() => {
-      if (term.length < 3) return;
-
       getArtists(term).then(response => {
         for (let i = 0; i < response.data.length; i++) {
           let artist = response.data[i];
           let { id, name, image } = artist;
+
           this.setState({
             artists: [
               ...this.state.artists,
@@ -38,6 +49,11 @@ class App extends React.Component {
             ]
           });
         }
+
+        if (!this.state.artists.length)
+          this.setState({
+            messageInfo: <div>Artist not found.</div>
+          });
       });
     }, 1000);
   };
@@ -53,7 +69,11 @@ class App extends React.Component {
           />
         </header>
 
-        <section className="Artists">{this.state.artists}</section>
+        <section className="Artists">
+          {this.state.artists.length
+            ? this.state.artists
+            : this.state.messageInfo}
+        </section>
       </div>
     );
   }
