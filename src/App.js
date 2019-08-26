@@ -18,8 +18,8 @@ class App extends React.Component {
   );
 
   searchTerm;
-  searchArtist = element => {
-    const term = element.target.value;
+  searchArtist = event => {
+    const term = event.target.value;
 
     clearTimeout(this.searchTerm);
     this.setState({ artists: [] });
