@@ -1,5 +1,5 @@
 import React from "react";
-import Artist from "./components/Artist";
+import Artist from "./components/Artist/Artist";
 import { getArtists } from "./services";
 import "./App.css";
 import "./App-responsive.css";
