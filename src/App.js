@@ -49,7 +49,7 @@ class App extends React.Component {
           <input
             className="Input-search"
             placeholder="Type an artist name"
-            onKeyUp={this.searchArtist}
+            onChange={this.searchArtist}
           />
         </header>
 
