@@ -13,9 +13,7 @@ class Search extends React.Component {
     };
   }
 
-  getArtistComponent = (key, id, name, imageUrl) => (
-    <Artist key={key} id={id} name={name} imageUrl={imageUrl} />
-  );
+  getArtistComponent = (key, artist) => <Artist key={key} artist={artist} />;
 
   searchTerm;
   searchArtist = event => {
@@ -40,12 +38,11 @@ class Search extends React.Component {
         .then(artists => {
           for (let i = 0; i < artists.length; i++) {
             let artist = artists[i];
-            let { id, name, image } = artist;
 
             this.setState({
               artists: [
                 ...this.state.artists,
-                this.getArtistComponent(i, id, name, image)
+                this.getArtistComponent(i, artist)
               ]
             });
           }

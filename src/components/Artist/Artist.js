@@ -18,8 +18,8 @@ const getArtistImage = (imageUrl, name, id) => {
 
 const Artist = props => (
   <div className="Artist">
-    {getArtistImage(props.imageUrl, props.name, props.id)}
-    <div className="Artist__name">{props.name}</div>
+    {getArtistImage(props.artist.image, props.artist.name, props.artist.id)}
+    <div className="Artist__name">{props.artist.name}</div>
   </div>
 );
 
