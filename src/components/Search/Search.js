@@ -36,24 +36,32 @@ class Search extends React.Component {
     }
 
     this.searchTerm = setTimeout(() => {
-      getArtists(term).then(response => {
-        for (let i = 0; i < response.data.length; i++) {
-          let artist = response.data[i];
-          let { id, name, image } = artist;
+      getArtists(term)
+        .then(artists => {
+          for (let i = 0; i < artists.length; i++) {
+            let artist = artists[i];
+            let { id, name, image } = artist;
 
-          this.setState({
-            artists: [
-              ...this.state.artists,
-              this.getArtistComponent(i, id, name, image)
-            ]
-          });
-        }
+            this.setState({
+              artists: [
+                ...this.state.artists,
+                this.getArtistComponent(i, id, name, image)
+              ]
+            });
+          }
 
-        if (!this.state.artists.length)
+          if (!this.state.artists.length)
+            this.setState({
+              messageInfo: <div>Artist not found.</div>
+            });
+        })
+        .catch(() => {
           this.setState({
-            messageInfo: <div>Artist not found.</div>
+            messageInfo: (
+              <div>An error has occurred, please try again later.</div>
+            )
           });
-      });
+        });
     }, 1000);
   };
 
