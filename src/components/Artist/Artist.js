@@ -4,11 +4,11 @@ import "./Artist.css";
 
 const getArtistImage = (imageUrl, name, id) => {
   return imageUrl ? (
-    <Link to={`/artist/${id}`}>
+    <Link to={`/details/${id}`}>
       <img className="Artist__image" src={imageUrl} alt={name} />
     </Link>
   ) : (
-    <Link to={`/artist/${id}`}>
+    <Link to={`/details/${id}`}>
       <div className="Artist__image-placeholder">
         <i className="fab fa-itunes-note Artist__note-icon" />
       </div>

@@ -1,14 +1,16 @@
 import React from "react";
-import { BrowserRouter as Router, Route } from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Search from "./components/Search/Search";
-import Artist from "./components/Artist/Artist";
+import ArtistDetails from "./components/ArtistDetails/ArtistDetails";
 
 class App extends React.Component {
   render() {
     return (
       <Router>
-        <Route path="/" component={Search} />
-        <Route path="/artist/:id" component={Artist} />
+        <Switch>
+          <Route path="/details/:id" component={ArtistDetails} />
+          <Route path="/" component={Search} />
+        </Switch>
       </Router>
     );
   }
