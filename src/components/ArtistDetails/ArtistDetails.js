@@ -9,7 +9,8 @@ class ArtistDetails extends React.Component {
     this.state = {
       id: "",
       name: "",
-      locations: []
+      locations: [],
+      messageInfo: <div>Loading...</div>
     };
   }
 
@@ -45,12 +46,19 @@ class ArtistDetails extends React.Component {
           ];
         }
 
+        if (!locations.length)
+          this.setState({
+            messageInfo: <div>No locations found for this artist.</div>
+          });
+
         this.setState({
           locations
         });
       })
-      .catch(error => {
-        console.error("it didn't work");
+      .catch(() => {
+        this.setState({
+          messageInfo: <div>An error has occurred, please try again later.</div>
+        });
       });
   }
 
@@ -61,7 +69,11 @@ class ArtistDetails extends React.Component {
           <h1>{this.state.name}</h1>
         </header>
 
-        <section className="Locations">{this.state.locations}</section>
+        <section className="Locations">
+          {this.state.locations.length
+            ? this.state.locations
+            : this.state.messageInfo}
+        </section>
       </div>
     );
   }
