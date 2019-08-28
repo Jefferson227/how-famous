@@ -69,6 +69,7 @@ class Search extends React.Component {
     return (
       <div className="Search">
         <header className="Search-header">
+          <h1>How famous my favourite band is?</h1>
           <input
             className="Input-search"
             placeholder="Type an artist name"
