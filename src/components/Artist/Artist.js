@@ -2,13 +2,25 @@ import React from "react";
 import { Link } from "react-router-dom";
 import "./Artist.css";
 
+const getDetailsUri = (name, id) => {
+  return {
+    pathname: `/details/${id}`,
+    state: {
+      selectedArtist: {
+        id,
+        name
+      }
+    }
+  };
+};
+
 const getArtistImage = (imageUrl, name, id) => {
   return imageUrl ? (
-    <Link to={`/details/${id}`}>
+    <Link to={getDetailsUri(name, id)}>
       <img className="Artist__image" src={imageUrl} alt={name} />
     </Link>
   ) : (
-    <Link to={`/details/${id}`}>
+    <Link to={getDetailsUri(name, id)}>
       <div className="Artist__image-placeholder">
         <i className="fab fa-itunes-note Artist__note-icon" />
       </div>
