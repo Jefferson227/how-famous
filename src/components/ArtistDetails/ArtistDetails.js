@@ -32,9 +32,15 @@ class ArtistDetails extends React.Component {
 
           locations = [
             ...locations,
-            <div key={i}>
-              {location.city}, {location.country}: {location.listeners}{" "}
-              listeners
+            <div key={i} className="Location">
+              <div>
+                <img
+                  src={`../../assets/flags/${location.country.toLowerCase()}.png`}
+                  alt={location.country}
+                />{" "}
+              </div>
+              <div>{`${i + 1}. ${location.city}`}</div>
+              <div>{location.listeners} listeners</div>
             </div>
           ];
         }
@@ -55,7 +61,7 @@ class ArtistDetails extends React.Component {
           <h1>{this.state.name}</h1>
         </header>
 
-        <section>{this.state.locations}</section>
+        <section className="Locations">{this.state.locations}</section>
       </div>
     );
   }
