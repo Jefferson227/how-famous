@@ -1,6 +1,7 @@
 import React from "react";
 import "./ArtistDetails.css";
 import { getCities } from "../../services";
+import numeral from "numeral";
 
 class ArtistDetails extends React.Component {
   constructor() {
@@ -41,7 +42,7 @@ class ArtistDetails extends React.Component {
                 />{" "}
               </div>
               <div>{`${i + 1}. ${location.city}`}</div>
-              <div>{location.listeners} listeners</div>
+              <div>{numeral(location.listeners).format("0,0")} listeners</div>
             </div>
           ];
         }
