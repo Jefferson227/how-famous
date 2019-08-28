@@ -18,4 +18,19 @@ const getArtists = async name => {
   return response;
 };
 
-export { getArtists };
+const getCities = async id => {
+  let response = {};
+
+  await axios
+    .get(`${baseUrl}/artist/${id}/cities`)
+    .then(res => {
+      response = res.data.data;
+    })
+    .catch(error => {
+      throw error.errorMessage;
+    });
+
+  return response;
+};
+
+export { getArtists, getCities };
