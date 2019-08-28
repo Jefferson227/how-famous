@@ -15,6 +15,21 @@ class Search extends React.Component {
 
   getArtistComponent = (key, artist) => <Artist key={key} artist={artist} />;
 
+  setArtistsOnState(artists) {
+    for (let i = 0; i < artists.length; i++) {
+      let artist = artists[i];
+
+      this.setState({
+        artists: [...this.state.artists, this.getArtistComponent(i, artist)]
+      });
+    }
+
+    if (!this.state.artists.length)
+      this.setState({
+        messageInfo: <div>Artist not found.</div>
+      });
+  }
+
   searchTerm;
   searchArtist = event => {
     const term = event.target.value;
@@ -36,21 +51,7 @@ class Search extends React.Component {
     this.searchTerm = setTimeout(() => {
       getArtists(term)
         .then(artists => {
-          for (let i = 0; i < artists.length; i++) {
-            let artist = artists[i];
-
-            this.setState({
-              artists: [
-                ...this.state.artists,
-                this.getArtistComponent(i, artist)
-              ]
-            });
-          }
-
-          if (!this.state.artists.length)
-            this.setState({
-              messageInfo: <div>Artist not found.</div>
-            });
+          this.setArtistsOnState(artists);
         })
         .catch(() => {
           this.setState({
