@@ -9,9 +9,21 @@
   margin: 0 auto;
   margin-left: 67px;
   margin-right: 67px;
+  margin-bottom: 85px;
 }
 
 .Location {
   margin-bottom: 25px;
   width: 16%;
+}
+
+footer div {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  height: 53px;
+  background: #03640a;
+  padding-top: 9px;
+  padding-bottom: 14px;
+  cursor: pointer;
 }

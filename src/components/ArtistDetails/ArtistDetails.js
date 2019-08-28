@@ -75,6 +75,12 @@ class ArtistDetails extends React.Component {
             ? this.state.locations
             : this.state.messageInfo}
         </section>
+
+        <footer>
+          <div>
+            <h3>Search again</h3>
+          </div>
+        </footer>
       </div>
     );
   }
