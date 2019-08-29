@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import "./ArtistDetails.css";
 import { getCities } from "../../services";
 import numeral from "numeral";
@@ -77,9 +78,11 @@ class ArtistDetails extends React.Component {
         </section>
 
         <footer>
-          <div>
-            <h3>Search again</h3>
-          </div>
+          <Link to="/">
+            <div>
+              <h3>Search again</h3>
+            </div>
+          </Link>
         </footer>
       </div>
     );

@@ -27,3 +27,8 @@ footer div {
   padding-bottom: 14px;
   cursor: pointer;
 }
+
+footer a div {
+  text-decoration: none;
+  color: #eee;
+}
