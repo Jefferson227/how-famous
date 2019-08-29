@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import "./ArtistDetails.css";
+import "./ArtistDetailsResponsive.css";
 import { getCities } from "../../services";
 import numeral from "numeral";
 import Credits from "../Credits/Credits";

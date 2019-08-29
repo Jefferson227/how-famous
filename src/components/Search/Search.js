@@ -3,6 +3,7 @@ import Artist from "../Artist/Artist";
 import Credits from "../Credits/Credits";
 import { getArtists } from "../../services";
 import "./Search.css";
+import "./SearchResponsive.css";
 
 class Search extends React.Component {
   constructor() {
@@ -69,12 +70,15 @@ class Search extends React.Component {
       <div className="Search">
         <header className="Search-header">
           <h1>How famous my favourite band is?</h1>
+        </header>
+
+        <section>
           <input
             className="Input-search"
             placeholder="Type an artist name"
             onChange={this.searchArtist}
           />
-        </header>
+        </section>
 
         <section className="Artists">
           {this.state.artists.length

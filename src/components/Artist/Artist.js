@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import "./Artist.css";
+import "./ArtistResponsive.css";
 
 const getDetailsUri = (name, id) => {
   return {
