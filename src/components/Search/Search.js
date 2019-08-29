@@ -1,5 +1,6 @@
 import React from "react";
 import Artist from "../Artist/Artist";
+import Credits from "../Credits/Credits";
 import { getArtists } from "../../services";
 import "./Search.css";
 
@@ -80,6 +81,10 @@ class Search extends React.Component {
             ? this.state.artists
             : this.state.messageInfo}
         </section>
+
+        <footer>
+          <Credits />
+        </footer>
       </div>
     );
   }

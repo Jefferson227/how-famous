@@ -32,3 +32,7 @@ footer a div {
   text-decoration: none;
   color: #eee;
 }
+
+.Details .Credits {
+  bottom: 87px;
+}

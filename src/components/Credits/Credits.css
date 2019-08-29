@@ -1,0 +1,15 @@
+.Credits {
+  position: fixed;
+  font-size: 30px;
+  bottom: 15px;
+  left: 15px;
+}
+
+.Credits__icon__left {
+  margin-right: 20px;
+}
+
+.Credits a {
+  text-decoration: none;
+  color: #eee;
+}
