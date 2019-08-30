@@ -83,7 +83,7 @@ class ArtistDetails extends React.Component {
           <Credits />
           <Link to="/">
             <div>
-              <h3>Search again</h3>
+              <h3>Search</h3>
             </div>
           </Link>
         </footer>
