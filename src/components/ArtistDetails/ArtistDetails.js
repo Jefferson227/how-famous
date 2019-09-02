@@ -31,9 +31,12 @@ class ArtistDetails extends React.Component {
     getCities(id)
       .then(response => {
         let locations = [];
+        this.setState({
+          monthlyListeners: this.getMonthlyListeners(response.monthlyListeners)
+        });
 
-        for (let i = 0; i < response.length; i++) {
-          let location = response[i];
+        for (let i = 0; i < response.cities.length; i++) {
+          let location = response.cities[i];
 
           locations = [
             ...locations,
@@ -66,11 +69,21 @@ class ArtistDetails extends React.Component {
       });
   }
 
+  getMonthlyListeners(listeners) {
+    if (!listeners) listeners = 0;
+
+    const sentence = `${numeral(listeners).format("0,0")} monthly listeners`;
+    return listeners === 1
+      ? sentence.replace("listeners", "listener")
+      : sentence;
+  }
+
   render() {
     return (
       <div className="Details">
         <header className="Details__header">
-          <h1>{this.state.name}</h1>
+          <h1 className="Details__title">{this.state.name}</h1>
+          <div>{this.state.monthlyListeners}</div>
         </header>
 
         <section className="Locations">
