@@ -1,3 +1,6 @@
+## Disclaimer
+This project is not working as expected anymore due to a change that Spotify applied in their web pages (since I was crawling the artist page in order to collect the information about the cities).
+
 ## About
 
 This is a simple web app where you see number of monthly listeners for your favourite band.
